@@ -3,12 +3,12 @@ import Delete from '../Operation/Delete/index.vue'
 import Equal from '../Operation/Equal/index.vue'
 import Mode from '../Operation/Mode/index.vue'
 import Number from '../Operation/Number/index.vue'
-import '../index.css'
+import '../../index.css'
 
 </script>
 
 <template>
-    <div>
+    <div class="counter-operation">
         <Delete></Delete>
         <Equal></Equal>
         <Mode></Mode>

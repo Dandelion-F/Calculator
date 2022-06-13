@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import '../../index.css'
+import '../../../index.css'
 </script>
 
 <template>
