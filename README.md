@@ -10,7 +10,7 @@ A simple demo of imitating baidu calculator.
   - Basic Configurations: ESlint + prettier (stylelint + husky + lint-staged)
   - Coding Norms: 
     - TS/TSX
-    - CSS: [CSS-BEM](https://bemcss.com/), [reset-css/normalize.css](https://jerryzou.com/posts/aboutNormalizeCss/), [less/sass/scss](https://segmentfault.com/a/1190000016023450)
+    - CSS: [CSS-BEM](https://bemcss.com/), [reset-css/normalize.css](https://jerryzou.com/posts/aboutNormalizeCss/), [less/sass/scss](https://segmentfault.com/a/1190000016023450), [Windi CSS](https://windicss.org/), [Tailwind CSS](https://tailwindcss.com/)
     - Others: hooks, router
 
 ## Todos
