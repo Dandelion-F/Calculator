@@ -1,0 +1,15 @@
+/* || counter */
+
+.counter {
+    position: relative;
+    margin: 2rem auto;
+    width: 60vw;
+    /* 
+    定义矩形宽高比：
+    方法1：aspect-ratio: 16 / 9; 
+    方法2：width: 60vw; height: 33.75vw;
+    */
+    height: 33.75vw;
+    background-color: black;
+    z-index: 2;
+}
