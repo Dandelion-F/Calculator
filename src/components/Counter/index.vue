@@ -2,6 +2,7 @@
 import Result from '../Counter/Result/index.vue'
 import Operation from '../Counter/Operation/index.vue'
 import '../index.css'
+import './style.css'
 
 </script>
 
@@ -11,5 +12,3 @@ import '../index.css'
         <Operation></Operation>
     </div>
 </template>
-
-<style></style>
