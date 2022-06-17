@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import Background from '../components/Background/index.vue'
-import Header from '../components/Header/index.vue'
-import Counter from '../components/Counter/index.vue'
-import Footer from '../components/Footer/index.vue'
-import './index.css'
-
+import Background from './Background/background.vue'
+import Header from './Header/header.vue'
+import Counter from './Counter/counter.vue'
+import Footer from './Footer/footer.vue'
 </script>
 
 <template>
