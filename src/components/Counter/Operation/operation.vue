@@ -1,16 +1,16 @@
-<script setup lang="ts">
+<script setup>
 import Delete from './Delete/delete.vue';
 import Equal from './Equal/equal.vue';
 import Mode from './Mode/mode.vue';
 import Number from './Number/number.vue';
-import Operator from './Operator/operator.vue'
-// import map from './operator.js'
+import Operator from './Operator/operator.vue';
+import { operatorMap, numberMap } from './operation.js';
 </script>
 
 <template>
   <div class="counter-operation">
     <Mode></Mode>
-    <Operator></Operator>
+    <Operator :class="map"></Operator>
     <Operator></Operator>
     <Delete></Delete>
     <Operator></Operator>
@@ -48,6 +48,6 @@ import Operator from './Operator/operator.vue'
 
 <style lang="postcss" scoped>
 .counter-operation {
-  @apply container z-[3] mt-4 flex gap-x-[5%] gap-y-4 flex-wrap;
+  @apply container z-[3] mt-4 flex flex-wrap gap-x-[5%] gap-y-4;
 }
 </style>
