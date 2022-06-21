@@ -72,7 +72,7 @@ import { operatorMap, numberMap } from './operation.js';
 
 .counter-number {
   @apply col-start-2 col-end-5 row-start-4 row-end-[8] grid grid-cols-3 grid-rows-4 gap-y-4 gap-x-[8.62%]
-  lg:col-start-4 lg:col-end-7 lg:row-start-2 lg:row-end-6;
+  lg:col-start-4 lg:col-end-7 lg:row-start-2 lg:row-end-6 lg:gap-x-[12.5%];
 }
 
 .counter-simpleBinaryOper {
@@ -82,6 +82,6 @@ import { operatorMap, numberMap } from './operation.js';
 
 .counter-bracket {
   @apply col-start-2 col-end-4 row-start-3 row-end-4 grid grid-cols-2 gap-x-[13.5%]
-  lg:col-start-5 lg:col-end-7 lg:row-start-1 lg:row-end-2;
+  lg:col-start-5 lg:col-end-7 lg:row-start-1 lg:row-end-2 lg:gap-x-[20%];
 }
 </style>
