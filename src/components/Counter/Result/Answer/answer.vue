@@ -12,7 +12,7 @@
 }
 
 .counter-result-answer span {
-  @apply text-3xl font-bold 
+  @apply text-3xl font-bold text-[#283155]
   sm:text-5xl;
 }
 </style>
