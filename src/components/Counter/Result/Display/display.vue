@@ -13,10 +13,12 @@
 }
 
 .counter-result-display div:first-child {
-  @apply inline-block rounded-md bg-[#EAECF3] p-1 text-xs text-gray-400 hover:bg-gray-300;
+  @apply inline-block rounded-md bg-[#EAECF3] p-1 text-xs text-gray-400 hover:bg-gray-300
+  lg:text-base;
 }
 
 .counter-result-display div:last-child {
-  @apply inline-block text-gray-400;
+  @apply inline-block text-gray-400
+  lg:text-xl;
 }
 </style>
