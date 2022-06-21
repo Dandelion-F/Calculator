@@ -6,7 +6,7 @@
 @layer components {
   .operation-btn {
     @apply flex aspect-[4/3] items-center justify-center rounded-xl text-2xl font-bold shadow-xl
-    lg:text-3xl;;
+    lg:text-2xl;;
   }
 
   .operation-delete-btn {
@@ -27,7 +27,7 @@
 
   .operation-mode-btn {
     @apply flex aspect-[4/3] h-full items-center justify-center rounded-xl bg-gray-300 text-xl font-bold shadow-xl
-    lg:text-3xl;
+    lg:text-2xl;
   }
 
   .operation-mode-btn:hover {
