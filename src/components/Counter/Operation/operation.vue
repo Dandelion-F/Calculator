@@ -4,54 +4,30 @@ import Equal from './Equal/equal.vue';
 import Mode from './Mode/mode.vue';
 import Number from './Number/number.vue';
 import Operator from './Operator/operator.vue';
-import { operatorMap, numberMap } from './operation.js';
+import { numberList, simpleBinaryOperList, bracketList, othersList } from './operation.js';
 </script>
 
 <template>
   <div class="counter-operation">
     <!-- Rad/Deg -->
     <div class="counter-mode"><Mode></Mode></div>
+    <!-- AC -->
     <div class="counter-delete"><Delete></Delete></div>
+    <!-- 1234567890. -->
     <div class="counter-number">
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
-      <Number></Number>
+      <Number v-for="number of numberList" :key="number" :number="number"></Number>
       <Equal></Equal>
     </div>
     <!-- +-×÷ -->
     <div class="counter-simpleBinaryOper">
-      <Operator></Operator>
-      <Operator></Operator>
-      <Operator></Operator>
-      <Operator></Operator>
+      <Operator v-for="simpleBinaryOper of simpleBinaryOperList" :key="simpleBinaryOper" :operator="simpleBinaryOper"></Operator>
     </div>
     <!-- () -->
     <div class="counter-bracket">
-      <Operator></Operator>
-      <Operator></Operator>
+      <Operator v-for="bracket of bracketList" :key="bracket" :operator="bracket"></Operator>
     </div>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
-    <Operator></Operator>
+    <!-- 其他 -->
+    <Operator v-for="otherOper of othersList" :key="otherOper" :operator="otherOper"></Operator>
   </div>
 </template>
 
