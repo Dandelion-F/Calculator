@@ -4,8 +4,9 @@
 
 /* 提取组件 */
 @layer components {
+  
   .operation-btn {
-    @apply flex aspect-[4/3] w-[16%] items-center justify-center rounded-xl text-2xl font-bold shadow-xl;
+    @apply flex aspect-[4/3] items-center justify-center rounded-xl text-2xl font-bold shadow-xl;
   }
 
   .operation-delete-btn {
