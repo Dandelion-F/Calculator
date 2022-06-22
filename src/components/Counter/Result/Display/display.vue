@@ -1,9 +1,12 @@
-<script setup lang="ts"></script>
+<script setup>
+import useCounterStore from '../../../../store/counter';
+const counter = useCounterStore();
+</script>
 
 <template>
   <div class="counter-result-display">
     <div>+/= 竖式</div>
-    <div>Ans = 5</div>
+    <div>{{ counter.result }}</div>
   </div>
 </template>
 

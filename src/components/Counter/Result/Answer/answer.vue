@@ -1,8 +1,11 @@
-<script setup lang="ts"></script>
+<script setup>
+import useCounterStore from '../../../../store/counter';
+const counter = useCounterStore();
+</script>
 
 <template>
   <div class="counter-result-answer">
-    <span>111111</span>
+    <span>{{ counter.inputStr ? counter.inputStr : '0' }}</span>
   </div>
 </template>
 
