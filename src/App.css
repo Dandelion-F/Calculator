@@ -49,4 +49,12 @@
   .operation-operator-btn:hover {
     @apply bg-gray-400;
   }
+
+  .operation-reset-btn {
+    @apply operation-btn bg-red-300 text-white;
+  }
+
+  .operation-reset-btn:hover {
+    @apply bg-red-400;
+  }
 }
