@@ -4,14 +4,17 @@ import Equal from './Equal/equal.vue';
 import Mode from './Mode/mode.vue';
 import Number from './Number/number.vue';
 import Operator from './Operator/operator.vue';
-import { numberList, simpleBinaryOperList, bracketList, othersList } from './operation.js';
+import Reset from './Reset/reset.vue'
+import { numberList, simpleBinaryOperList, bracketList, othersList } from './operation';
 </script>
 
 <template>
   <div class="counter-operation">
     <!-- Rad/Deg -->
     <div class="counter-mode"><Mode></Mode></div>
-    <!-- AC -->
+    <!-- RST -->
+    <div class="counter-reset"><Reset></Reset></div>
+    <!-- DEL -->
     <div class="counter-delete"><Delete></Delete></div>
     <!-- 1234567890. -->
     <div class="counter-number">
@@ -42,6 +45,11 @@ import { numberList, simpleBinaryOperList, bracketList, othersList } from './ope
 }
 
 .counter-delete {
+  @apply col-start-4 col-end-5
+  lg:col-start-6 lg:col-end-7;
+}
+
+.counter-reset {
   @apply col-start-5 col-end-6
   lg:col-start-7 lg:col-end-8;
 }
@@ -58,6 +66,6 @@ import { numberList, simpleBinaryOperList, bracketList, othersList } from './ope
 
 .counter-bracket {
   @apply col-start-2 col-end-4 row-start-3 row-end-4 grid grid-cols-2 gap-x-[13.5%]
-  lg:col-start-5 lg:col-end-7 lg:row-start-1 lg:row-end-2 lg:gap-x-[20%];
+  lg:col-start-4 lg:col-end-6 lg:row-start-1 lg:row-end-2 lg:gap-x-[20%];
 }
 </style>
