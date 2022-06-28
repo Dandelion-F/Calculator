@@ -1,12 +1,18 @@
 <script setup>
-import useCounterStore from '../../../../store/counter';
-const counter = useCounterStore();
+import useCounterService from '../../../../../src/utils/useCounterMachine.js';
+
+let result;
+useCounterService
+  .onTransition((state) => {
+    result = state.context.result;
+  })
+  .start();
 </script>
 
 <template>
   <div class="counter-result-display">
     <div>+/= 竖式</div>
-    <div>{{ counter.result }}</div>
+    <div>{{ result }}</div>
   </div>
 </template>
 
