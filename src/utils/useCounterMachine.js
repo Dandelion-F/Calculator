@@ -381,10 +381,10 @@ const counterMachine = createMachine({
           target: '#Calculator.Start.Result',
           actions: assign({
             result(ctx, _) {
-              return eval(ctx.inputStr.replace(/×/, "*").replace(/÷/, "/"));
+              return eval(ctx.inputStr.replace(/×/g, "*").replace(/÷/g, "/"));
             },
             inputStr(ctx, e) {
-              return ctx.inputStr + ' ' + e.value;
+              return ctx.inputStr.replace(/×/g, "*").replace(/÷/g, "/") + ' ' + e.value;
             },
           }),
         },
