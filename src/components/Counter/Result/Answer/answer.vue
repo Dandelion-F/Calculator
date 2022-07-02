@@ -1,11 +1,10 @@
 <script setup>
-import useCounterStore from '../../../../store/counter';
-const counter = useCounterStore();
+import { result } from '../../../../utils/useCounterMachine';
 </script>
 
 <template>
   <div class="counter-result-answer">
-    <span>{{ counter.inputStr ? counter.inputStr : '0' }}</span>
+    <span>{{ result }}</span>
   </div>
 </template>
 
