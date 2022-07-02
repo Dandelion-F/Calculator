@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import useCounterMachine from '../../../../utils/useCounterMachine.js';
+import { useCounterMachine } from '../../../../utils/useCounterMachine';
 
 function handleReset() {
-  useCounterMachine
-    .onTransition((state) => {
-      console.log(state.context.result);
-    })
-    .start()
-    .send('RESET');
+  useCounterMachine.send({ type: 'RESET' });
 }
 </script>
 
