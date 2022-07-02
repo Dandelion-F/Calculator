@@ -6,7 +6,15 @@ const props = defineProps({
 });
 
 function handleInt(number) {
-  useCounterMachine.send({ type: 'INT', value: '' + number });
+  let type;
+  if (number === '0') {
+    type = 'ZERO';
+  } else if (number === '.') {
+    type = 'POINT';
+  } else {
+    type = 'INT';
+  }
+  useCounterMachine.send({ type, value: number });
 }
 </script>
 
