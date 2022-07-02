@@ -1,27 +1,17 @@
 <script setup>
-import useCounterStore from '../../../../store/counter';
+import { useCounterMachine } from '../../../../utils/useCounterMachine';
 
 const props = defineProps({
   operator: String,
 });
 
-const counter = useCounterStore();
-const addOperator = (oper) => {
-  if (oper === '×') {
-    oper = '*';
-  }
-  if (oper === '÷') {
-    oper = '/';
-  }
-  counter.addOper(oper);
-};
+function handleOper(operator) {
+  useCounterMachine.send({ type: 'OPER', value: operator });
+}
 </script>
 
 <template>
-  <div
-    class="operation-operator-btn"
-    @click="() => addOperator(props.operator)"
-  >
+  <div class="operation-operator-btn" @click="() => handleOper(props.operator)">
     {{ props.operator }}
   </div>
 </template>
