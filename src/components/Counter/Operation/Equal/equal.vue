@@ -1,13 +1,13 @@
 <script setup>
-import useCounterStore from '../../../../store/counter';
-const counter = useCounterStore();
-const getResult = () => {
-  counter.getResult();
-};
+import { useCounterMachine } from '../../../../utils/useCounterMachine';
+
+function handleEqual() {
+  useCounterMachine.send({ type: 'EQUAL', value: '=' });
+}
 </script>
 
 <template>
-  <div class="operation-equal-btn" @click="getResult">=</div>
+  <div class="operation-equal-btn" @click="handleEqual">=</div>
 </template>
 
 <style scoped></style>
