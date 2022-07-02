@@ -1,18 +1,11 @@
 <script setup>
-import useCounterService from '../../../../../src/utils/useCounterMachine.js';
-
-let result;
-useCounterService
-  .onTransition((state) => {
-    result = state.context.result;
-  })
-  .start();
+import { inputStr } from '../../../../utils/useCounterMachine';
 </script>
 
 <template>
   <div class="counter-result-display">
     <div>+/= 竖式</div>
-    <div>{{ result }}</div>
+    <div>{{ inputStr }}</div>
   </div>
 </template>
 
