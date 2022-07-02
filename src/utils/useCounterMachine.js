@@ -1,3 +1,4 @@
+import { ref } from 'vue';
 import { assign, createMachine, interpret } from 'xstate';
 
 const counterMachine = createMachine({
@@ -400,10 +401,10 @@ const counterMachine = createMachine({
   },
 });
 
-let result, inputStr;
+let result = ref(0), inputStr = ref("");
 const useCounterMachine = interpret(counterMachine).onTransition(state => {
-  result = state.context.result;
-  inputStr = state.context.inputStr;
+  result.value = state.context.result;
+  inputStr.value = state.context.inputStr;
   console.log('state change:', state.value, 'context:', state.context);
 }).start();
 
