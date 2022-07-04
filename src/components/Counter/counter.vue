@@ -12,7 +12,7 @@ import Operation from './Operation/operation.vue';
 
 <style lang="postcss" scoped>
 .counter {
-  @apply container relative z-[2] h-[fit-content] w-full bg-[#EAECF3]/50 p-[3%] shadow-2xl backdrop-blur-md 
-  sm:mt-20 sm:w-[60%] sm:rounded-xl mb-8;
+  @apply container relative z-[2] h-[fit-content] w-full bg-[#EAECF3]/50 p-[3%] shadow-2xl backdrop-blur-md mt-[50px]
+  sm:mt-16 sm:w-[60%] sm:rounded-xl mb-5;
 }
 </style>
