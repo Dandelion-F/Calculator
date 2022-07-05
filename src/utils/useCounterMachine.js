@@ -203,6 +203,13 @@ const counterMachine = createMachine({
         },
       },
       on: {
+        RESET: {
+          target: '#Calculator.Start.Begin',
+          actions: assign({
+            result: 0,
+            inputStr: '',
+          }),
+        },
         OPER: {
           target: '#Calculator.Operator',
           actions: assign({
@@ -230,7 +237,7 @@ const counterMachine = createMachine({
               target: 'BinaryOper',
               actions: assign({
                 inputStr(ctx, e) {
-                  if (ctx.inputStr.slice(-1) === '+' || ctx.inputStr.slice(-1) === '-' || ctx.inputStr.slice(-1) === '*' || ctx.inputStr.slice(-1) === '/') {
+                  if (ctx.inputStr.slice(-1) === '+' || ctx.inputStr.slice(-1) === '-' || ctx.inputStr.slice(-1) === '×' || ctx.inputStr.slice(-1) === '÷') {
                     return ctx.inputStr.slice(0, -1) + e.value;
                   } else {
                     return ctx.inputStr + e.value;
@@ -242,6 +249,13 @@ const counterMachine = createMachine({
         },
       },
       on: {
+        RESET: {
+          target: '#Calculator.Start.Begin',
+          actions: assign({
+            result: 0,
+            inputStr: '',
+          }),
+        },
         ZERO: {
           target: '#Calculator.Operand_2.Zero',
           actions: assign({
@@ -369,6 +383,13 @@ const counterMachine = createMachine({
         },
       },
       on: {
+        RESET: {
+          target: '#Calculator.Start.Begin',
+          actions: assign({
+            result: 0,
+            inputStr: '',
+          }),
+        },
         DEL: {
           target: '#Calculator.Operand_2',
           actions: assign({
@@ -384,7 +405,7 @@ const counterMachine = createMachine({
               return eval(ctx.inputStr.replace(/×/g, "*").replace(/÷/g, "/"));
             },
             inputStr(ctx, e) {
-              return ctx.inputStr.replace(/×/g, "*").replace(/÷/g, "/") + ' ' + e.value;
+              return ctx.inputStr + ' ' + e.value;
             },
           }),
         },
