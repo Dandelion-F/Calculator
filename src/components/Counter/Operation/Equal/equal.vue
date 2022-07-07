@@ -7,7 +7,7 @@ function handleEqual() {
 </script>
 
 <template>
-  <div class="operation-equal-btn" @click="handleEqual">=</div>
+  <div class="operation-equal-btn" @click="handleEqual" role="button" aria-label="等于">=</div>
 </template>
 
 <style scoped></style>
