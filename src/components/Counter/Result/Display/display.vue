@@ -3,8 +3,8 @@ import { inputStr } from '../../../../utils/useCounterMachine';
 </script>
 
 <template>
-  <div class="counter-result-display">
-    <div>+/= 竖式</div>
+  <div class="counter-result-display" aria-label="输入的表达式显示">
+    <div aria-hidden="true">+/= 竖式</div>
     <div>{{ inputStr }}</div>
   </div>
 </template>
