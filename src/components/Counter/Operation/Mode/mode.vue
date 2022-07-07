@@ -17,8 +17,8 @@ function changeMode(mode: string) {
 
 <template>
   <div class="operation-mode-box">
-    <div :class="radClass" @click="() => changeMode('rad')">Rad</div>
-    <div :class="degClass" @click="() => changeMode('deg')">Deg</div>
+    <div :class="radClass" @click="() => changeMode('rad')" role="button" aria-label="弧度模式" aria-disabled="true">Rad</div>
+    <div :class="degClass" @click="() => changeMode('deg')" role="button" aria-label="角度模式" aria-disabled="true">Deg</div>
   </div>
 </template>
 
