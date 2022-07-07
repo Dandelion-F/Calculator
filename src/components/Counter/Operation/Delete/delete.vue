@@ -7,7 +7,7 @@ function handleDelete() {
 </script>
 
 <template>
-  <div class="operation-delete-btn" @click="handleDelete">DEL</div>
+  <div class="operation-delete-btn" @click="handleDelete" role="button" aria-label="删除">DEL</div>
 </template>
 
 <style scoped></style>
