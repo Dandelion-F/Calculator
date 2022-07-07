@@ -3,7 +3,7 @@ import { result } from '../../../../utils/useCounterMachine';
 </script>
 
 <template>
-  <div class="counter-result-answer">
+  <div class="counter-result-answer" aria-label="运算结果显示">
     <span>{{ result }}</span>
   </div>
 </template>

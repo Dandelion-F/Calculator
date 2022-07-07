@@ -4,7 +4,7 @@ import Answer from './Answer/answer.vue';
 </script>
 
 <template>
-  <div class="counter-result">
+  <div class="counter-result" aria-label="结果显示区域">
     <Display></Display>
     <Answer></Answer>
   </div>
