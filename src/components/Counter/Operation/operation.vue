@@ -9,7 +9,7 @@ import { numberList, simpleBinaryOperList, bracketList, othersList } from './ope
 </script>
 
 <template>
-  <div class="counter-operation">
+  <div class="counter-operation" aria-label="按钮操作区域">
     <!-- Rad/Deg -->
     <div class="counter-mode"><Mode></Mode></div>
     <!-- RST -->
