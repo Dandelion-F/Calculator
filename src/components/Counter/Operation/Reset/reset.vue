@@ -7,7 +7,7 @@ function handleReset() {
 </script>
 
 <template>
-  <div class="operation-reset-btn" @click="handleReset">RST</div>
+  <div class="operation-reset-btn" @click="handleReset" role="button" aria-label="重置">RST</div>
 </template>
 
 <style scoped></style>
