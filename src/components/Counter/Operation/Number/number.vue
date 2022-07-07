@@ -1,5 +1,6 @@
 <script setup>
 import { useCounterMachine } from '../../../../utils/useCounterMachine';
+import { numberMap } from '../operation.ts';
 
 const props = defineProps({
   number: String,
@@ -19,7 +20,12 @@ function handleInt(number) {
 </script>
 
 <template>
-  <div class="operation-number-btn" @click="() => handleInt(props.number)">
+  <div
+    class="operation-number-btn"
+    @click="() => handleInt(props.number)"
+    role="button"
+    :aria-label="`${numberMap.get(props.number)}`"
+  >
     {{ props.number }}
   </div>
 </template>
