@@ -3,16 +3,28 @@ import { ref } from 'vue';
 
 let lightClass = ref('top-in-mode');
 let darkClass = ref('top-not-in-mode');
+let ariaLightPressed = ref(true);
+let ariaDarkPressed = ref(false);
 
 function toggleMode(mode: string) {
   if (mode === 'light') {
     lightClass.value = 'top-in-mode';
     darkClass.value = 'top-not-in-mode';
     document.documentElement.classList.remove('dark');
+    ariaLightPressed.value = true;
+    ariaDarkPressed.value = false;
   } else {
     darkClass.value = 'top-in-mode';
     lightClass.value = 'top-not-in-mode';
     document.documentElement.classList.add('dark');
+    ariaDarkPressed.value = true;
+    ariaLightPressed.value = false;
+  }
+}
+
+function handlekeydown(e: any, mode: string) {
+  if (e.code === 'Enter') {
+    toggleMode(mode);
   }
 }
 </script>
@@ -20,8 +32,28 @@ function toggleMode(mode: string) {
 <template>
   <header class="top">
     <div class="top-light-dark-mode" aria-label="网页顶部导航">
-      <div :class="lightClass" @click="() => toggleMode('light')" aria-label="切换到日间模式">light</div>
-      <div :class="darkClass" @click="() => toggleMode('dark')" aria-label="切换到夜间模式">dark</div>
+      <div
+        :class="lightClass"
+        @click="() => toggleMode('light')"
+        aria-label="日间模式"
+        :aria-pressed="`${ariaLightPressed}`"
+        role="button"
+        tabindex="-1"
+        @keydown="(e) => handlekeydown(e, 'light')"
+      >
+        light
+      </div>
+      <div
+        :class="darkClass"
+        @click="() => toggleMode('dark')"
+        aria-label="夜间模式"
+        :aria-pressed="`${ariaDarkPressed}`"
+        role="button"
+        tabindex="-1"
+        @keydown="(e) => handlekeydown(e, 'dark')"
+      >
+        dark
+      </div>
     </div>
   </header>
 </template>
