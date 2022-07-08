@@ -35,7 +35,7 @@ function handlekeydown(e, operator) {
   }
 }
 
-function handleBlur() {
+function handleBlur(operator) {
   if (!judgeDisabledBtn(operator)) {
     ariaPressed.value = false;
   }
