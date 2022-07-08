@@ -13,7 +13,8 @@
     @apply operation-btn bg-orange-300 text-white;
   }
 
-  .operation-delete-btn:hover {
+  .operation-delete-btn:hover,
+  .operation-delete-btn:focus {
     @apply bg-orange-400;
   }
 
@@ -21,7 +22,8 @@
     @apply operation-btn bg-blue-400 text-white;
   }
 
-  .operation-equal-btn:hover {
+  .operation-equal-btn:hover,
+  .operation-equal-btn:focus {
     @apply bg-blue-500;
   }
 
@@ -30,7 +32,8 @@
     lg:text-2xl;
   }
 
-  .operation-mode-btn:hover {
+  .operation-mode-btn:hover,
+  .operation-mode-btn:focus {
     @apply bg-gray-400;
   }
 
@@ -38,7 +41,8 @@
     @apply operation-btn bg-white;
   }
 
-  .operation-number-btn:hover {
+  .operation-number-btn:hover,
+  .operation-number-btn:focus {
     @apply bg-[#DFE1E5];
   }
 
@@ -46,7 +50,8 @@
     @apply operation-btn bg-gray-300;
   }
 
-  .operation-operator-btn:hover {
+  .operation-operator-btn:hover,
+  .operation-operator-btn:focus {
     @apply bg-gray-400;
   }
 
@@ -54,7 +59,8 @@
     @apply operation-btn bg-red-300 text-white;
   }
 
-  .operation-reset-btn:hover {
+  .operation-reset-btn:hover,
+  .operation-reset-btn:focus {
     @apply bg-red-400;
   }
 }
