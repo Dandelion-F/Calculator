@@ -38,8 +38,10 @@ function handlekeydown(e: any, mode: string) {
         aria-label="日间模式"
         :aria-pressed="`${ariaLightPressed}`"
         role="button"
-        tabindex="-1"
+        tabindex="0"
         @keydown="(e) => handlekeydown(e, 'light')"
+        accesskey="l"
+        autofocus
       >
         light
       </div>
@@ -49,8 +51,9 @@ function handlekeydown(e: any, mode: string) {
         aria-label="夜间模式"
         :aria-pressed="`${ariaDarkPressed}`"
         role="button"
-        tabindex="-1"
+        tabindex="0"
         @keydown="(e) => handlekeydown(e, 'dark')"
+        accesskey="n"
       >
         dark
       </div>
