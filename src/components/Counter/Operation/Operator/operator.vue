@@ -1,9 +1,12 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useCounterMachine } from '../../../../utils/useCounterMachine';
 import { operatorMap, simpleBinaryOperList } from '../operation.ts';
 
-let ariaPressed = ref(false);
+let isPressed = ref(false);
+let ariaPressed = computed(() => {
+  return isPressed.value ? true : false;
+});
 
 const props = defineProps({
   operator: String,
@@ -11,34 +14,30 @@ const props = defineProps({
 
 function handleOper(operator) {
   if (!judgeDisabledBtn(operator)) {
-    ariaPressed.value = true;
+    isPressed.value = true;
     useCounterMachine.send({ type: 'OPER', value: operator });
   }
 }
 
 function judgeDisabledBtn(operator) {
   let disabledBtn = true;
-
   for (let oper of simpleBinaryOperList) {
     if (operator === oper) {
       disabledBtn = false;
       break;
     }
   }
-
   return disabledBtn;
-}
-
-function handlekeydown(e, operator) {
-  if (e.code === 'Enter') {
-    handleOper(operator);
-  }
 }
 
 function handleBlur(operator) {
   if (!judgeDisabledBtn(operator)) {
-    ariaPressed.value = false;
+    isPressed.value = false;
   }
+}
+
+function handlePress() {
+  isPressed.value = true;
 }
 </script>
 
@@ -52,8 +51,8 @@ function handleBlur(operator) {
     :aria-pressed="`${ariaPressed}`"
     :aria-label="`${operatorMap.get(props.operator)}`"
     :aria-disabled="`${judgeDisabledBtn(props.operator)}`"
-    @keydown="(e) => handlekeydown(e, props.operator)"
     @blur="() => handleBlur(props.operator)"
+    @keypress="handlePress"
   >
     {{ props.operator }}
   </div>

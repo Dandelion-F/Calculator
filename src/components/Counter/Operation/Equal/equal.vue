@@ -1,22 +1,23 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useCounterMachine } from '../../../../utils/useCounterMachine';
 
-let ariaPressed = ref(false);
+let isPressed = ref(false);
+let ariaPressed = computed(() => {
+  return isPressed.value ? true : false;
+});
 
 function handleEqual() {
-  ariaPressed.value = true;
+  isPressed.value = true;
   useCounterMachine.send({ type: 'EQUAL', value: '=' });
 }
 
-function handlekeydown(e) {
-  if (e.code === 'Enter') {
-    handleEqual();
-  }
+function handleBlur() {
+  isPressed.value = false;
 }
 
-function handleBlur() {
-  ariaPressed.value = false;
+function handlePress() {
+  isPressed.value = true;
 }
 </script>
 
@@ -28,9 +29,9 @@ function handleBlur() {
     role="button"
     aria-label="等于"
     tabindex="0"
-    @keydown="(e) => handlekeydown(e)"
     :aria-pressed="`${ariaPressed}`"
     @blur="handleBlur"
+    @keypress="handlePress"
   >
     =
   </div>

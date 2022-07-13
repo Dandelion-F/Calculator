@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useCounterMachine } from '../../../../utils/useCounterMachine';
 
-let ariaPressed = ref(false);
+let isPressed = ref(false);
+let ariaPressed = computed(() => {
+  return isPressed.value ? true : false;
+});
 
 function handleDelete() {
-  ariaPressed.value = true;
+  isPressed.value = true;
   useCounterMachine.send({ type: 'DEL' });
 }
 
-function handlekeydown(e: any) {
-  if (e.code === 'Enter') {
-    handleDelete();
-  }
+function handleBlur() {
+  isPressed.value = false;
 }
 
-function handleBlur(e: any) {
-  ariaPressed.value = false;
+function handlePress() {
+  isPressed.value = true;
 }
 </script>
 
@@ -28,9 +29,9 @@ function handleBlur(e: any) {
     role="button"
     aria-label="删除"
     :aria-pressed="`${ariaPressed}`"
-    @keydown="(e) => handlekeydown(e)"
     tabindex="0"
     @blur="handleBlur"
+    @keypress="handlePress"
   >
     DEL
   </div>

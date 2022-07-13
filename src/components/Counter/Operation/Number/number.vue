@@ -1,9 +1,12 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useCounterMachine } from '../../../../utils/useCounterMachine';
 import { numberMap } from '../operation.ts';
 
-let ariaPressed = ref(false);
+let isPressed = ref(false);
+let ariaPressed = computed(() => {
+  return isPressed.value ? true : false;
+});
 
 const props = defineProps({
   number: String,
@@ -19,17 +22,15 @@ function handleInt(number) {
     type = 'INT';
   }
   useCounterMachine.send({ type, value: number });
-  ariaPressed.value = true;
-}
-
-function handlekeydown(e, number) {
-  if (e.code === 'Enter') {
-    handleInt(number);
-  }
+  isPressed.value = true;
 }
 
 function handleBlur() {
-  ariaPressed.value = false;
+  isPressed.value = false;
+}
+
+function handlePress() {
+  isPressed.value = true;
 }
 </script>
 
@@ -42,8 +43,8 @@ function handleBlur() {
     tabindex="0"
     :aria-pressed="`${ariaPressed}`"
     :aria-label="`${numberMap.get(props.number)}`"
-    @keydown="(e) => handlekeydown(e, props.number)"
     @blur="handleBlur"
+    @keypress="handlePress"
   >
     {{ props.number }}
   </div>
