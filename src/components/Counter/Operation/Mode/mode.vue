@@ -1,36 +1,44 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 let radClass = ref('operation-mode-btn');
 let degClass = ref('operation-mode-no-btn');
-let ariaRadPressed = ref(true);
-let ariaDegPressed = ref(false);
+
+let isRadPressed = ref(true);
+let ariaRadPressed = computed(() => {
+  return isRadPressed.value ? true : false;
+});
+
+let isDegPressed = ref(false);
+let ariaDegPressed = computed(() => {
+  return isDegPressed.value ? true : false;
+});
 
 function changeMode(mode: string) {
   if (mode === 'rad') {
     radClass.value = 'operation-mode-btn';
     degClass.value = 'operation-mode-no-btn';
-    ariaRadPressed.value = true;
-    ariaDegPressed.value = false;
+    isRadPressed.value = true;
+    isDegPressed.value = false;
   } else {
     degClass.value = 'operation-mode-btn';
     radClass.value = 'operation-mode-no-btn';
-    ariaRadPressed.value = false;
-    ariaDegPressed.value = true;
+    isRadPressed.value = false;
+    isDegPressed.value = true;
+  }
+}
+
+function handleBlur(mode: string) {
+  if (mode === 'rad') {
+    isRadPressed.value = false;
+  } else {
+    isDegPressed.value = false;
   }
 }
 
 function handleKeydown(e: any, mode: string) {
   if (e.code === 'Enter') {
     changeMode(mode);
-  }
-}
-
-function handleBlur(mode: string) {
-  if (mode === 'rad') {
-    ariaRadPressed.value = false;
-  } else {
-    ariaDegPressed.value = false;
   }
 }
 </script>
