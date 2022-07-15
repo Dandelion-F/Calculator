@@ -30,8 +30,9 @@ function handlekeydown(e: any, mode: string) {
 </script>
 
 <template>
-  <header class="top">
-    <div class="top-light-dark-mode" aria-label="网页顶部导航">
+  <header class="top" aria-label="网页顶部导航">
+    <button class="install-pwa-btn">添加到桌面</button>
+    <div class="top-light-dark-mode">
       <div
         :class="lightClass"
         @click="() => toggleMode('light')"
@@ -64,6 +65,15 @@ function handlekeydown(e: any, mode: string) {
 <style lang="postcss" scoped>
 .top {
   @apply fixed top-0 left-0 z-10 flex h-[50px] w-full items-center justify-end border-4 border-x-0 border-t-0 border-blue-200 bg-blue-100 backdrop-blur-md dark:border-gray-600 dark:bg-gray-500;
+}
+
+.install-pwa-btn {
+  @apply mr-6 rounded-lg border-2 border-black bg-gray-200 px-4;
+}
+
+.install-pwa-btn:hover,
+.install-pwa-btn:focus {
+  @apply bg-gray-400;
 }
 
 .top-light-dark-mode {
