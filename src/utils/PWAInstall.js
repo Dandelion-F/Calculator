@@ -2,20 +2,28 @@
 let deferredPrompt;
 const addBtn = document.querySelector('.install-pwa-btn');
 
-window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener('beforeinstallprompt', function (e) {
+    console.log('beforeinstallprompt Event fired');
     e.preventDefault();
     deferredPrompt = e;
-    showInstallPromotion();
-    
-    addBtn.addEventListener('click', async () => {
+    return false;
+});
+
+addBtn.addEventListener('click', () => {
+    if (deferredPrompt !== undefined) {
         addBtn.style.display = 'none';
-        hideInstallPromotion();
         deferredPrompt.prompt();
-        
-        const { outcome } = await deferredPrompt.userChoice;
-        console.log(`User response to the install prompt: ${outcome}`);
-        deferredPrompt = null;
-    });
+        deferredPrompt.userChoice.then(function (choiceResult) {
+            console.log(choiceResult.outcome);
+            if (choiceResult.outcome == 'dismissed') {
+                console.log('User cancelled home screen install');
+            }
+            else {
+                console.log('User added to home screen');
+            }
+            deferredPrompt = null;
+        });
+    }
 });
 
 // 检测 pwa 是否被成功安装
